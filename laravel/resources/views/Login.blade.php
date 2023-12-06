@@ -1,11 +1,11 @@
-
+@import navbar from 'resources\views\Component';
 
 <!DOCTYPE html>
 
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>Login HealthSis</title>
-    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="\resources\css\Style.css">
 </head>
 
 <body>
