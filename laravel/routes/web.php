@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HealthSisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/register', function () {
+    return view('register');
+});
+Route::get('/Login', function () {
     return view('Login');
 });
+Route::get('/Dashboard', function () {
+    return view('Dashboard');
+});
+
+Route::get('/Login', [HealthSisController::class, 'Login']);
+Route::get('/LoginCheck', [HealthSisController::class, 'LoginCheck']);
+Route::get('/register', [HealthSisController::class, 'create']);
+Route::post('/store', [HealthSisController::class, 'store']);

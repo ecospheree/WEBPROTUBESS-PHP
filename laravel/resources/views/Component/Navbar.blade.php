@@ -16,7 +16,7 @@
             <div class="col-6" >
                 <div class="d-flex flex-row">
                     <div class="p-2">
-                        <a href="Dashboard.html"><img src="./Image/HealthSIs.jpg" alt="Logo HealthSIs" id="LogoHS" style="width: 45px;"></a>
+                        <a href="/Dashboard"><img src="./Image/HealthSIs.jpg" alt="Logo HealthSIs" id="LogoHS" style="width: 45px;"></a>
                     </div>
                     <div class="p-2" id="ProfBar"><a href="Profile.html" class="form-text" style="color: white;">Profile</a></div>
                     <div class="p-2"><a href="Menu Diet.html" class="form-text" style="color: white;">Menu Diet</a></div>
@@ -26,17 +26,17 @@
             </div>
             <div class="col-6">
                 <div class="d-flex flex-row-reverse">
-                    <div class="p-2" id="LoginBar"><a href="/Login.html" class="form-text" style="color: white;">Login</a></div>
-                    <div class="p-2" id="SignUpBar"><a href="/SignUp.html" class="form-text" style="color: white;">Register</a></div>
-                    <div class="p-2" id="ProfileBar"><a href="/Profile.html" class="form-text" style="color: white;">Iqnaz</a></div>
-                    <div class="p-2" id="SignOutBar"><a href="/Dashboard.html" class="form-text" onclick="LogOut()" style="color: white;">SignOut</a></div>
+                    <div class="p-2" id="LoginBar"><a href="/Login" class="form-text" style="color: white;">Login</a></div>
+                    <div class="p-2" id="SignUpBar"><a href="/register" class="form-text" style="color: white;">Register</a></div>
+                    <div class="p-2" id="ProfileBar"><a href="/Profile" class="form-text" style="color: white;">{{ session('username') }} </a></div>
+                    <div class="p-2" id="SignOutBar"><a href="/Dashboard" class="form-text" onclick="LogOut()" style="color: white;">SignOut</a></div>
                 </div>      
             </div>
         </div>
     </div>
 </body>
 
-<script src="/Default.js"></script>
+<script src="{{ asset('Default.js') }}"></script>
 <script>
     window.onload = function() {
         cekLogin();
