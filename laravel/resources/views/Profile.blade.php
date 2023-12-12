@@ -21,11 +21,11 @@
                 <center>
                     <img src="./Image/BigMan.jpg" alt="Profil Saya" class="rounded-circle img-fluid" id="profile-image" style="width: 200px;">
                 </center>
-                <p id="usernameP" style="color: white;">Username</p>
-                <p id="phoneP" style="color: white;">No. HP</p>
-                <p id="statusP" style="color: white;">Status</p>
-                <p id="ageP" style="color: white;">Umur</p>
-                <p id="noteP" style="color: white;">Note</p>
+                <p id="usernameP" style="color: white;">{{$prods->Username}}</p>
+                <p id="phoneP" style="color: white;">{{$prods->NoHP}}</p>
+                <p id="statusP" style="color: white;">{{$prods->status}}</p>
+                <p id="ageP" style="color: white;">{{$prods->Umur}}</p>
+                <p id="noteP" style="color: white;">{{$prods->Note}}</p>
             </div>
         </div>
     </div>

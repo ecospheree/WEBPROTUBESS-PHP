@@ -28,6 +28,7 @@ class HealthSisController extends Controller
         $user = HealthSis::where('Email', $email)->first();
         if ($user && password_verify($password, $user->password)) {
             session(['username' => $user->Username]);
+            session(['id' => $user->id]);
             return redirect('Dashboard');
         } else {
             return redirect('Login')->with('error', 'Email atau password salah');
@@ -65,7 +66,7 @@ class HealthSisController extends Controller
             'title' => 'Edit',
             'method' => 'PUT',
             'action' => "HealthSis/$id/update",
-            'data' => HealthSis::find($id)
+            'prods' => HealthSis::find($id)
         ]);
     }
     public function update(Request $request, $id)
