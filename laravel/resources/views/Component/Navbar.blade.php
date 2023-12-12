@@ -6,7 +6,7 @@
     <!--AJAX-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--CSS-->
-    <link rel="stylesheet" href="./NavBar.css">
+    <link rel="stylesheet" href="{{ asset('NavBar.css') }}">
 </head>
 <body>
     <!--Code-->
@@ -16,10 +16,10 @@
             <div class="col-6" >
                 <div class="d-flex flex-row">
                     <div class="p-2">
-                        <a href="/Dashboard"><img src="./Image/HealthSIs.jpg" alt="Logo HealthSIs" id="LogoHS" style="width: 45px;"></a>
+                        <a href="/Dashboard"><img src="/Image/HealthSIs.jpg" alt="Logo HealthSIs" id="LogoHS" style="width: 45px;"></a>
                     </div>
                     <div class="p-2" id="ProfBar"><a href="Profile.html" class="form-text" style="color: white;">Profile</a></div>
-                    <div class="p-2"><a href="Menu Diet.html" class="form-text" style="color: white;">Menu Diet</a></div>
+                    <div class="p-2"><a href="menudiet" class="form-text" style="color: white;">Menu Diet</a></div>
                     <div class="p-2"><a href="Artikel.html" class="form-text" style="color: white;">Artikel</a></div>
                     <div class="p-2"><a href="Timeline.html" class="form-text" style="color: white;">Timeline</a></div>
                 </div>

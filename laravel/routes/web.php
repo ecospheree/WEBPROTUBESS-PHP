@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HealthSisController;
+use App\Http\Controllers\menudietController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register', function () {
-    return view('register');
+Route::get("/Dashboard", function (){
+    return view("Dashboard");
 });
-Route::get('/Login', function () {
-    return view('Login');
-});
-Route::get('/Dashboard', function () {
-    return view('Dashboard');
-});
+
+Route::get('/menudiet', [menudietController::class, 'index']);
+Route::get('/createmenudiet', [menudietController::class, 'create']);
+Route::post('/storemenudiet', [menudietController::class, 'store']);
+route::get('/menudiet/{id}/food', [menudietController::class,'edit']);
 
 Route::get('/Login', [HealthSisController::class, 'Login']);
 Route::get('/LoginCheck', [HealthSisController::class, 'LoginCheck']);
