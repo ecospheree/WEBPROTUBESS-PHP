@@ -15,16 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/Dashboard", function (){
-    return view("Dashboard");
-});
 
+Route::get('/Dashboard', function () {
+    return view('Dashboard');
+});
+//MenuDiet
 Route::get('/menudiet', [menudietController::class, 'index']);
 Route::get('/createmenudiet', [menudietController::class, 'create']);
 Route::post('/storemenudiet', [menudietController::class, 'store']);
 route::get('/menudiet/{id}/food', [menudietController::class,'edit']);
 
+//LOGIN REGISTER, PROFILE
 Route::get('/Login', [HealthSisController::class, 'Login']);
 Route::get('/LoginCheck', [HealthSisController::class, 'LoginCheck']);
 Route::get('/register', [HealthSisController::class, 'create']);
 Route::post('/store', [HealthSisController::class, 'store']);
+Route::put('/HealthSis/{id}/update', [HealthSisController::class, 'update']);
+Route::get('/HealthSis/{id}/edit', [HealthSisController::class, 'edit']);

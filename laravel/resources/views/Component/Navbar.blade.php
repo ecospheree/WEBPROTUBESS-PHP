@@ -18,8 +18,13 @@
                     <div class="p-2">
                         <a href="/Dashboard"><img src="/Image/HealthSIs.jpg" alt="Logo HealthSIs" id="LogoHS" style="width: 45px;"></a>
                     </div>
+<<<<<<< HEAD
                     <div class="p-2" id="ProfBar"><a href="Profile.html" class="form-text" style="color: white;">Profile</a></div>
                     <div class="p-2"><a href="menudiet" class="form-text" style="color: white;">Menu Diet</a></div>
+=======
+                    <div class="p-2" id="ProfBar"><a href="/HealthSis/{id}/update" class="form-text" style="color: white;">Profile</a></div>
+                    <div class="p-2"><a href="Menu Diet.html" class="form-text" style="color: white;">Menu Diet</a></div>
+>>>>>>> 91ae70fdff70879397d42b1030f37d720ea666a6
                     <div class="p-2"><a href="Artikel.html" class="form-text" style="color: white;">Artikel</a></div>
                     <div class="p-2"><a href="Timeline.html" class="form-text" style="color: white;">Timeline</a></div>
                 </div>

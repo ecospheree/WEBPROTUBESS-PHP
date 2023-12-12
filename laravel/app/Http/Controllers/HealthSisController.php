@@ -58,4 +58,30 @@ class HealthSisController extends Controller
         $prod->save();
         return redirect('/Login')->with('msg', 'Akun Berhasil dibuat');
     }
+
+    public function edit($id)
+    {
+        return view('Profile', [
+            'title' => 'Edit',
+            'method' => 'PUT',
+            'action' => "HealthSis/$id/update",
+            'data' => HealthSis::find($id)
+        ]);
+    }
+    public function update(Request $request, $id)
+    {
+        $prod = HealthSis::find($id);
+        $prod->FirstName = $request->FirstName;
+        $prod->LastName = $request->LastName;
+        $prod->Username = $request->Username;
+        $prod->Email = $request->Email;
+        $prod->password = Hash::make($request->password);
+        $prod->NoHP = $request->NoHP;
+        $prod->Status = $request->Status;
+        $prod->Note = $request->Note;
+        $prod->Umur = $request->Umur;
+        $prod->save();
+        return redirect('/Profile')->with('msg', 'Edit berhasil');
+    }
+
 }
