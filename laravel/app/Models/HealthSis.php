@@ -18,6 +18,7 @@ class HealthSis extends Model
         "Note",
         "Umur",
         "password",
-        "Email"
-        ];
+        "Email",
+        "Image"
+    ];
 }

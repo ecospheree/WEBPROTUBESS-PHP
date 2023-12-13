@@ -16,15 +16,14 @@ class HealthSisController extends Controller
             return view("Dashboard");
         } else {
             return view("Login");
-        }
-        ;
+        };
     }
 
     public function LoginCheck(Request $request)
     {
         $email = $request->email;
         $password = $request->password;
-        
+
         $user = HealthSis::where('Email', $email)->first();
         if ($user && password_verify($password, $user->password)) {
             session(['username' => $user->Username]);
@@ -56,6 +55,7 @@ class HealthSisController extends Controller
         $prod->Status = '';
         $prod->Note = '';
         $prod->Umur = '';
+        $prod->Image = '';
         $prod->save();
         return redirect('/Login')->with('msg', 'Akun Berhasil dibuat');
     }
@@ -72,17 +72,18 @@ class HealthSisController extends Controller
     public function update(Request $request, $id)
     {
         $prod = HealthSis::find($id);
-        $prod->FirstName = $request->FirstName;
-        $prod->LastName = $request->LastName;
         $prod->Username = $request->Username;
-        $prod->Email = $request->Email;
-        $prod->password = Hash::make($request->password);
         $prod->NoHP = $request->NoHP;
         $prod->Status = $request->Status;
         $prod->Note = $request->Note;
         $prod->Umur = $request->Umur;
+        if ($request->file('Image')) {
+            $file = $request->file('Image');
+            $filename = date('YmdHi') . $file->getClientOriginalExtension();
+            $file->move(public_path('public/Image'), $filename);
+            $prod->Image = $filename;
+        }
         $prod->save();
-        return redirect('/Profile')->with('msg', 'Edit berhasil');
+        return redirect('/Dashboard')->with('msg', 'Edit berhasil');
     }
-
 }

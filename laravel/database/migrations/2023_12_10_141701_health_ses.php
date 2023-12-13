@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('NoHP');
             $table->string('status');
             $table->string('Note');
+            $table->string('Image');
             $table->timestamps();
         });
     }
