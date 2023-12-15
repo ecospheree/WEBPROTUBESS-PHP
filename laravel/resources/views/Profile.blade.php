@@ -9,11 +9,15 @@
 </head>
 
 <body style="background-color: #C394E8;">
-    <span role="button" id="open-sidebar" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#mySidebar"
-        aria-controls="mySidebar" style="font-size: 30px; cursor: pointer;">&#9776;</span>
-    <a href="/Dashboard" id="home-link" style="position: absolute; top: 20px; right: 20px; font-size: 30px;">
+    
+    @component('Component.Navbar')
+    @endcomponent
+
+    <span role="button" id="open-sidebar" class="btn btn-primary " data-bs-toggle="offcanvas" data-bs-target="#mySidebar"
+        aria-controls="mySidebar" style="font-size: 30px; cursor: pointer; position: absolute; top: 80px; left: 20px;">&#9776;</span>
+    <!-- <a href="/Dashboard" id="home-link" style="position: absolute; top: 20px; right: 20px; font-size: 30px;">
         &#127968;
-    </a>
+    </a> -->
     <div id="mySidebar" class="offcanvas offcanvas-start" tabindex="-1" style="background-color: #a00066;">
         <div class="offcanvas-header">
             <h2 class="offcanvas-title" style="color: white;">Profile</h2>
@@ -33,6 +37,7 @@
             </div>
         </div>
     </div>
+
     <div class="container container-shifted" style="margin-top: 100px;">
         <form method="POST" action="/{{ $action }}" enctype="multipart/form-data">
             @csrf

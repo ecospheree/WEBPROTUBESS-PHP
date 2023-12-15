@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="./Component/NavBar.css">
 </head>
 <body>
-    <div class="d-flex flex-row-reverse mb-1">
-        <div class="ml-auto dropdown static" id="dropdown">
+    <div class="d-flex flex-row-reverse mb-1" style="margin-top: 3.9%; margin-right: 0.8%;">
+        <div class="ml-auto dropdown static" id="dropdown" >
             <button type="button" class="dropdown-toggle btn btn-info" role="button" data-bs-toggle="dropdown">ADMIN</button>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="/createmenudiet" class="dropdown-item menu-action">Create-MenuDiet</a>

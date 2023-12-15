@@ -11,18 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('health_ses', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('FirstName');
-            $table->string('LastName');
             $table->string('Username');
-            $table->string('Email');
-            $table->string('password');
-            $table->string('Umur');
-            $table->string('NoHP');
-            $table->string('Status');
-            $table->string('Note');
             $table->string('Image');
+            $table->string('Message');
             $table->timestamps();
         });
     }
@@ -32,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('health_ses');
+        Schema::dropIfExists('posts');
     }
 };

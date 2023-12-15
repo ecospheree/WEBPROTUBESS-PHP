@@ -20,27 +20,25 @@
     <!--Konten Admin-->
     @component('Component.Admin')
     @endcomponent
-    <!--Baris pertama-->
-    <div>
-        <h2 for="Most Related" class="Content-Label ms-2 mb-2">Most Related</h2>
-    </div>
-    <div class="row d-flex mb-2 ms-auto">
-        <!--ITEM-1-->
+    <!-- COBA BARIS KE 1 -->
+    <div class="container mb-3" style="margin-top:5%;">
+        <div class="row">
+            <h1>Most Related</h1>
+        </div>
+        <div class="row">
         @foreach($prods as $d)
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <a href="/menudiet/{{$d->id}}/food">
-                    <img src="{{url('public/Image/'.$d->Image)}}" alt="Food_1" class="card-img-top" style="height: 200px; object-fit: cover;">
-                </a>
+            <!--Food1-->
+            <div class="card col m-lg-2 ">
                 <div class="card-body">
-                    <h3 class="text-center card-title">{{$d->Judul}}</h3>
-                    <h5 class="card-text text-center">{{$d->Subjudul}} Kal</h5>
+                    <h5 class="card-title">{{$d->Judul}}</h5>
+                    <img src="{{url('public/Image/'.$d->Image)}}" class="img-thumbnail" alt="...">
+                    <p class="card-text">{{$d->Subjudul}} Kal</p>
+                    <a href="/menudiet/{{$d->id}}/food" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
-        </div>
         @endforeach
+        </div>
     </div>
-    
     <!--Baris ke-2 Konten-->
     <div>
         <h2 class="Content-Label ms-2 mb-2">Recommended</h2>
@@ -80,7 +78,8 @@
         </div>
         <!--ITEM-5-->
         <div class="card mr-1 ms-auto me-auto">
-            <a href="./Image/MenuDiet/src/Food-1.jpg" class="img-fluid"><img src="./Image/MenuDiet/Food_1.jpg" alt="Food_1"></a>
+            <a href="./Image/MenuDiet/src/Food-1.jpg" class="img-fluid"><img src="./Image/MenuDiet/Food_1.jpg"
+                    alt="Food_1"></a>
             <div class="card-body">
                 <h3 class="text-center card-text">Smoothie <br>Bayam Kiwi</h3>
                 <h5 class="card-text text-center">200Kal</h5>
@@ -88,7 +87,8 @@
         </div>
         <!--ITEM-6-->
         <div class="card mr-1 ms-auto me-auto">
-            <a href="./Image/MenuDiet/src/Food-1.jpg" class="img-fluid"><img src="./Image/MenuDiet/Food_1.jpg" alt="Food_1"></a>
+            <a href="./Image/MenuDiet/src/Food-1.jpg" class="img-fluid"><img src="./Image/MenuDiet/Food_1.jpg"
+                    alt="Food_1"></a>
             <div class="card-body">
                 <h3 class="text-center card-text">Fruity Pancake</h3>
                 <h5 class="card-text text-center">365Kal</h5>
@@ -99,7 +99,7 @@
 
 <script src="{{ asset('Default.js') }}"></script>
 <script>
-    window.onload = function() {
+    window.onload = function () {
         cekLogin();
         cekAdmin();
     };

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HealthSisController;
 use App\Http\Controllers\menudietController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/Dashboard', function () {
     return view('Dashboard');
 });
+
+//default admin profile
+Route::get('/Profile', function () {
+    return view('Profile');
+});
+
 //MenuDiet
 Route::get('/menudiet', [menudietController::class, 'index']);
 Route::get('/createmenudiet', [menudietController::class, 'create']);
@@ -32,3 +39,6 @@ Route::get('/register', [HealthSisController::class, 'create']);
 Route::post('/store', [HealthSisController::class, 'store']);
 Route::put('/HealthSis/{id}/update', [HealthSisController::class, 'update']);
 Route::get('/HealthSis/{id}/edit', [HealthSisController::class, 'edit']);
+
+//Timeline
+Route::get('/timeline', [PostController::class,'index'])->name('post.index');
