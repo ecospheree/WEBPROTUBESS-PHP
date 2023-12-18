@@ -18,12 +18,12 @@
     <!--Konten-->
     <div class="container" style="margin-top:6%;">
         <div class="container text-center">
-                <div class="row items-center">
-                    <div class="col-2" style="background-color: aqua;">
+                <div class="row items-center mb-4">
+                    <div class="col-2 p-2" style="background-color: aqua;">
                         <img src="./Image/BigMan.jpg" alt="BigMan" class="rounded-circle"
                             style="width: 100%; position: relative;">
                     </div>
-                    <div class="col" style="background-color: aqua;">
+                    <div class="col p-2" style="background-color: aqua;">
                         <label for="Name" class="float-start"
                             style="background-color: white; position: relative;">BigMan</label>
                         <p class="float-end text-start" style="background-color: aqua; position: relative;">
@@ -34,7 +34,22 @@
                             #allinprabowo
                         </p>
                     </div>
-                </div>    
+                </div>
+                @foreach($prods as $d)
+                <div class="row items-center mb-4">
+                    <div class="col-2 p-2" style="background-color: aqua;">
+                        <img src="{{url('public/Image/'.$d->Image)}}" alt="BigMan" class="rounded-circle w-20"
+                            style="width: 120px; position: relative;">
+                    </div>
+                    <div class="col p-2" style="background-color: aqua;">
+                        <label for="Name" class="float-start"
+                            style="background-color: white; position: relative;">{{$d->Username}}</label><br>
+                        <p class="float text-start" style="background-color: aqua;">
+                            {{$d->Message}}
+                        </p>
+                    </div>
+                </div>   
+                @endforeach
         </div>
     </div>
 </body>
@@ -42,7 +57,7 @@
 <footer>
     <!--UPLOAD BUTTON-->
     <div class="position-relative">
-        <a href="./Upload-Timeline.html" onclick="return AlertLogin();"><img src="./Image/Timeline/UploadIcon-removebg-preview.png" alt="Upload" class="rounded-circle position-fixed bottom-0 end-0"></a>
+        <a href="/timeline/{{session('id')}}/create-timeline" onclick="return AlertLogin();"><img src="./Image/Timeline/UploadIcon-removebg-preview.png" alt="Upload" class="rounded-circle position-fixed bottom-0 end-0"></a>
     </div>
 
 </footer>

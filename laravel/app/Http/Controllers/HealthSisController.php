@@ -21,6 +21,8 @@ class HealthSisController extends Controller
 
     public function LoginCheck(Request $request)
     {
+        session_start();
+
         $email = $request->email;
         $password = $request->password;
 
@@ -28,6 +30,8 @@ class HealthSisController extends Controller
         if ($user && password_verify($password, $user->password)) {
             session(['username' => $user->Username]);
             session(['id' => $user->id]);
+            session(['statusLogin'=> true]);
+            session(['statusAdmin'=> false]);
             return redirect('Dashboard');
         } else {
             return redirect('Login')->with('error', 'Email atau password salah');
@@ -84,6 +88,6 @@ class HealthSisController extends Controller
             $prod->Image = $filename;
         }
         $prod->save();
-        return redirect('/Dashboard')->with('msg', 'Edit berhasil');
+        return redirect("/HealthSis/{$id}/edit")->with('msg', 'Edit berhasil');
     }
 }

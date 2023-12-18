@@ -42,3 +42,5 @@ Route::get('/HealthSis/{id}/edit', [HealthSisController::class, 'edit']);
 
 //Timeline
 Route::get('/timeline', [PostController::class,'index'])->name('post.index');
+Route::get('/timeline/{id}/create-timeline', [PostController::class,'create'])->name('post.create');
+Route::post('/timeline/{id}/store', [PostController::class,'store'])->name('post.store');
