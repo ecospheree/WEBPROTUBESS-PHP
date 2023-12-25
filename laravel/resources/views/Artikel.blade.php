@@ -37,7 +37,7 @@
                         <h5 class="card-title">5 Makanan yang cocok untuk diet bagi mahasiswa</h5>
                         <p class="card-text">Berikut merupakan beberapa makanan diet untuk mahasiswa</p>
                         <a href="/Artikel/Artikel-1.html"><input type="button" value="More" class="card-text btn btn-info"></a>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>

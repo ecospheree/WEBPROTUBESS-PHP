@@ -103,6 +103,7 @@ class HealthSisController extends Controller
     public function logout(){
         session(['statusAdmin' => false]);
         session(['statusLogin' => false]);
+        session()->flush();
         return view("/Dashboard");
     }
 }

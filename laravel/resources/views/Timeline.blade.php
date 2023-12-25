@@ -26,8 +26,10 @@
                             style="width: 120px; position: relative;">
                     </div>
                     <div class="col p-2" style="background-color: aqua;">
+                    @if(session('username')==$d->Username)
                         @component('Component.CompTimeline', ['data' => $d, 'page' => 'timeline'])
                         @endcomponent
+                    @endif
                         <label for="Name" class="float-start"
                             style="background-color: white; position: relative;">{{$d->Username}}</label><br>
                         <p class="float text-start" style="background-color: aqua;">
