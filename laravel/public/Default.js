@@ -1,18 +1,13 @@
 let username = document.getElementById("Uname-id");
 let password = document.getElementById("P-id");
 var formlogn = document.getElementById("formLogin-id");
-var DropdownMenu = document.getElementById("dropdownID");
+
 var statusLogin = localStorage.getItem("statusLogin");
 var statusAdmin = localStorage.getItem("statusAdmin");
 
 function login(){
     if(username.value == "" || password.value == ""){
         window.alert("Masukkan Password/Username !!")
-    }else if(username.value == "AlifAdmin" && password.value == "alif123"){
-        formlogn.action = "/Dashboard";
-        window.alert("Anda Login Sebagai Admin")
-        localStorage.setItem("statusLogin", "true");
-        localStorage.setItem("statusAdmin", "true");
     }else{
         formlogn.action = "/LoginCheck";
         localStorage.setItem("statusLogin", "true");
@@ -38,13 +33,12 @@ function cekLogin(){
 }
 
 function cekAdmin(){
+    var DropdownMenu = document.getElementById("dropdownID");
     statusAdmin = false;
     if(statusAdmin == "false"){
         DropdownMenu.style.display ='none'
         return false;
     }
-    var porfileBar = document.getElementById("ProfileBar");
-    porfileBar.innerHTML = '<a href="/Profile" class="form-text" style="color: black;">Admin</a>';
 }
 
 function LogOut(){

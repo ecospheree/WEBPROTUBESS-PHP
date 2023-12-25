@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="card-text btn btn-info mx-1" style="background-color: #C394E8;" id="SignOutBar">
-                    <a href="/Dashboard" class="form-text" onclick="LogOut()" style="color: black;">SignOut</a>
+                    <a href="/logout" class="form-text" onclick="LogOut()" style="color: black;">SignOut</a>
                 </div>
             </div>
         </div>

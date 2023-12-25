@@ -23,8 +23,9 @@
                     style="width: 100%; position: relative;">
             </div>
             <div class="col-10">
-                <form class="form-group" method="{{$method}}" action="{{$action}}" enctype="multipart/form-data">
+                <form class="form-group" method="POST" action="{{$action}}" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="_method" value="{{ $method }}" />
                     <label for="Username" class="float-start"
                         style="font-size: large; font-weight: bold; position: relative;">{{
                         $prods->Username }}
@@ -40,7 +41,7 @@
                     </label>
                     <div class="mt-3">
                         <textarea class="form-control" rows="4" style="background-color: aqua;" name="Message"
-                            placeholder="Send Message...">{{ isset($data)?$data->Message:'' }}</textarea>
+                            placeholder="Send Message...">{{ isset($prods)?$prods->Message:'' }}</textarea>
                     </div>
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary float-end">Submit</button>

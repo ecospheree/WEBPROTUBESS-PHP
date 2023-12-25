@@ -38,4 +38,35 @@ class PostController extends Controller
         $prod->save();
         return redirect('/timeline')->with('msg', 'Edit berhasil');
     }
+
+    public function edit($id)
+    {
+        return view('Upload-Timeline', [
+            'title' => 'Edit',
+            'method' => 'PUT',
+            'action' => "/timeline/$id/update",
+            'prods' => Post::find($id)
+        ]);
+    }
+    public function update(Request $request, $id)
+    {
+        $user = HealthSis::find($id);
+        $prod = new Post;
+        $prod->Username = $user->Username;
+        $prod->Message = $request->Message;
+        if ($request->file('Image')) {
+            $file = $request->file('Image');
+            $filename = date('YmdHi') . $file->getClientOriginalExtension();
+            $file->move(public_path('public/Image'), $filename);
+            $prod->Image = $filename;
+        }
+        $prod->save();
+        return redirect('/timeline')->with('msg', 'Edit berhasil');
+
+    }
+
+    public function delete($id){
+        Post::destroy($id);
+        return redirect('/timeline')->with('msg', 'Hapus berhasil');
+    }
 }

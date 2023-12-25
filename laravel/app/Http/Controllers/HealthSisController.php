@@ -14,6 +14,7 @@ class HealthSisController extends Controller
     public function Login()
     {
         if (Auth::check()) {
+            session_start();
             return view("Dashboard");
         } else {
             return view("Login");
@@ -22,8 +23,6 @@ class HealthSisController extends Controller
 
     public function LoginCheck(Request $request)
     {
-        session_start();
-
         $email = $request->email;
         $password = $request->password;
 
@@ -33,6 +32,12 @@ class HealthSisController extends Controller
             session(['id' => $user->id]);
             session(['statusLogin' => true]);
             session(['statusAdmin' => false]);
+            return redirect('Dashboard');
+        }elseif($email == "AlifAdmin" && $password == "alif123"){
+            session(['username' => 'ADMIN']);
+            session(['id' => '0']);
+            session(['statusLogin' => true]);
+            session(['statusAdmin' => true]);
             return redirect('Dashboard');
         } else {
             return redirect('Login')->with('error', 'Email atau password salah');
@@ -93,5 +98,11 @@ class HealthSisController extends Controller
         }
         $prod->save();
         return redirect("/HealthSis/{$id}/edit")->with('msg', 'Edit berhasil');
+    }
+
+    public function logout(){
+        session(['statusAdmin' => false]);
+        session(['statusLogin' => false]);
+        return view("/Dashboard");
     }
 }

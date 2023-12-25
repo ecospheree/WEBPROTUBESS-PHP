@@ -18,15 +18,18 @@
     @endcomponent
     <!--ISI KONTEN MENU DIET-->
     <!--Konten Admin-->
-    @component('Component.Admin')
-    @endcomponent
+   
     <!-- COBA BARIS KE 1 -->
     <div class="container mb-3" style="margin-top:5%;">
+        @if(session('statusAdmin') === true)
+            @component('Component.Admin')
+            @endcomponent
+        @endif
         <div class="row">
             <h1>Most Related</h1>
         </div>
         <div class="row">
-        @foreach($prods as $d)
+            @foreach($prods as $d)
             <!--Food1-->
             <div class="card col m-lg-2 ">
                 <div class="card-body">
@@ -36,7 +39,7 @@
                     <a href="/menudiet/{{$d->id}}/food" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
-        @endforeach
+            @endforeach
         </div>
     </div>
     <!--Baris ke-2 Konten-->

@@ -16,7 +16,7 @@
             <h1>Login</h1>
             <form id="formLogin-id">
                 <div class="mb-3">
-                    <input type="text" name="email" id="Uname-id" class="text-box" placeholder="Username"
+                    <input type="text" name="email" id="Uname-id" class="text-box" placeholder="Email"
                         value="{{ isset($data)?$data->email:'' }}" required>
                 </div>
                 <div class="mb-3">

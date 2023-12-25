@@ -14,27 +14,11 @@
     <!--NAVBAR-->
     @component('Component.Navbar')
     @endcomponent
-
+        
     <!--Konten-->
     <div class="container" style="margin-top:6%;">
+        
         <div class="container text-center">
-                <div class="row items-center mb-4">
-                    <div class="col-2 p-2" style="background-color: aqua;">
-                        <img src="./Image/BigMan.jpg" alt="BigMan" class="rounded-circle"
-                            style="width: 100%; position: relative;">
-                    </div>
-                    <div class="col p-2" style="background-color: aqua;">
-                        <label for="Name" class="float-start"
-                            style="background-color: white; position: relative;">BigMan</label>
-                        <p class="float-end text-start" style="background-color: aqua; position: relative;">
-                            jadi inget pas dulu, badan masih bagus muka
-                            masih cantik. banyak boti deket, lah sekarang
-                            badan udah ga keurus gini. semoga tetep sehat
-                            terus deh nih badan. xixixixi. #ayotetepsehat#kitaharuspanjangumur#pilpres2024
-                            #allinprabowo
-                        </p>
-                    </div>
-                </div>
                 @foreach($prods as $d)
                 <div class="row items-center mb-4">
                     <div class="col-2 p-2" style="background-color: aqua;">
@@ -42,6 +26,8 @@
                             style="width: 120px; position: relative;">
                     </div>
                     <div class="col p-2" style="background-color: aqua;">
+                        @component('Component.CompTimeline', ['data' => $d, 'page' => 'timeline'])
+                        @endcomponent
                         <label for="Name" class="float-start"
                             style="background-color: white; position: relative;">{{$d->Username}}</label><br>
                         <p class="float text-start" style="background-color: aqua;">

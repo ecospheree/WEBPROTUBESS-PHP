@@ -35,17 +35,25 @@ route::get('/menudiet/{id}/food', [menudietController::class,'edit']);
 //LOGIN REGISTER, PROFILE
 Route::get('/Login', [HealthSisController::class, 'Login']);
 Route::get('/LoginCheck', [HealthSisController::class, 'LoginCheck']);
+Route::get('/logout', [HealthSisController::class, 'logout']);
 Route::get('/register', [HealthSisController::class, 'create']);
 Route::post('/store', [HealthSisController::class, 'store']);
 Route::put('/HealthSis/{id}/update', [HealthSisController::class, 'update']);
 Route::get('/HealthSis/{id}/edit', [HealthSisController::class, 'edit']);
-
 //Timeline
 Route::get('/timeline', [PostController::class,'index'])->name('post.index');
 Route::get('/timeline/{id}/create-timeline', [PostController::class,'create'])->name('post.create');
 Route::post('/timeline/{id}/store', [PostController::class,'store'])->name('post.store');
-
+Route::put('/timeline/{id}/update', [PostController::class, 'update'])->name('post.update');
+Route::get('/timeline/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+Route::get('/timeline/{id}/delete', [PostController::class, 'delete'])->name('post.delete');
 //Artikel
 Route::get('/artikel', function () {
     return view('Artikel');
+});
+
+
+//tesss
+Route::get('/', function () {
+    return view('welcome');
 });
