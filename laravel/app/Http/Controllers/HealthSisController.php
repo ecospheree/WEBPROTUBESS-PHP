@@ -6,6 +6,7 @@ use App\Models\HealthSis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class HealthSisController extends Controller
 {
@@ -30,8 +31,8 @@ class HealthSisController extends Controller
         if ($user && password_verify($password, $user->password)) {
             session(['username' => $user->Username]);
             session(['id' => $user->id]);
-            session(['statusLogin'=> true]);
-            session(['statusAdmin'=> false]);
+            session(['statusLogin' => true]);
+            session(['statusAdmin' => false]);
             return redirect('Dashboard');
         } else {
             return redirect('Login')->with('error', 'Email atau password salah');
@@ -59,7 +60,8 @@ class HealthSisController extends Controller
         $prod->Status = '';
         $prod->Note = '';
         $prod->Umur = '';
-        $prod->Image = '';
+        $prod->TanggalLahir = '';
+        $prod->Image = 'default.jpg';
         $prod->save();
         return redirect('/Login')->with('msg', 'Akun Berhasil dibuat');
     }
@@ -80,7 +82,9 @@ class HealthSisController extends Controller
         $prod->NoHP = $request->NoHP;
         $prod->Status = $request->Status;
         $prod->Note = $request->Note;
-        $prod->Umur = $request->Umur;
+        $birthdate = Carbon::createFromFormat('Y-m-d', $request->TanggalLahir);
+        $prod->Umur = $birthdate->diffInYears(Carbon::now()) . ' tahun';
+        $prod->TanggalLahir = $request->TanggalLahir;
         if ($request->file('Image')) {
             $file = $request->file('Image');
             $filename = date('YmdHi') . $file->getClientOriginalExtension();

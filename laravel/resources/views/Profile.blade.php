@@ -9,12 +9,13 @@
 </head>
 
 <body style="background-color: #C394E8;">
-    
+
     @component('Component.Navbar')
     @endcomponent
 
-    <span role="button" id="open-sidebar" class="btn btn-primary " data-bs-toggle="offcanvas" data-bs-target="#mySidebar"
-        aria-controls="mySidebar" style="font-size: 30px; cursor: pointer; position: absolute; top: 80px; left: 20px;">&#9776;</span>
+    <span role="button" id="open-sidebar" class="btn btn-primary " data-bs-toggle="offcanvas"
+        data-bs-target="#mySidebar" aria-controls="mySidebar"
+        style="font-size: 30px; cursor: pointer; position: absolute; top: 80px; left: 20px;">&#9776;</span>
     <!-- <a href="/Dashboard" id="home-link" style="position: absolute; top: 20px; right: 20px; font-size: 30px;">
         &#127968;
     </a> -->
@@ -27,13 +28,13 @@
             <div>
                 <center>
                     <img src="{{url('public/Image/'.$prods->Image)}}" alt="Profil Saya" class="rounded-circle img-fluid"
-                        id="profile-image" style="width: 200px;">
-                </center>
-                <p id="usernameP" style="color: white;">{{$prods->Username}}</p>
-                <p id="phoneP" style="color: white;">{{$prods->NoHP}}</p>
-                <p id="statusP" style="color: white;">{{$prods->status}}</p>
-                <p id="ageP" style="color: white;">{{$prods->Umur}}</p>
-                <p id="noteP" style="color: white;">{{$prods->Note}}</p>
+                        id="profile-image" style="width: 200px; height: 200px;">
+                </center><br>
+                <h4 id="usernameP" style="color: white; margin-top: 10px; padding: 10px;">{{$prods->Username}}</h4>
+                <h4 id="phoneP" style="color: white; margin-top: 10px; padding: 10px;">{{$prods->NoHP}}</h4>
+                <h4 id="statusP" style="color: white; margin-top: 10px; padding: 10px;">{{$prods->Status}}</h4>
+                <h4 id="ageP" style="color: white; margin-top: 10px; padding: 10px;">{{$prods->Umur}}</h4>
+                <h4 id="noteP" style="color: white; margin-top: 10px; padding: 10px;">{{$prods->Note}}</h4>
             </div>
         </div>
     </div>
@@ -76,9 +77,9 @@
                                     value="{{ isset($prods)?$prods->Status:'' }}">
                             </div>
                             <div class="mb-3">
-                                <label for="Umur" class="form-label">Umur</label>
-                                <input type="date" name="Umur" class="form-control" id="Umur"
-                                    value="{{ isset($prods)?$prods->Umur:'' }}">
+                                <label for="TanggalLahir" class="form-label">Tanggal Lahir</label>
+                                <input type="date" name="TanggalLahir" class="form-control" id="TanggalLahir"
+                                    value="{{ isset($prods)?$prods->TanggalLahir:'' }}">
                             </div>
                             <div class="mb-3">
                                 <label for="Note" class="form-label">Note</label>

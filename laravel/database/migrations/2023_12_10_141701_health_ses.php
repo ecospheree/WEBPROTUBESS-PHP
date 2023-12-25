@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Email');
             $table->string('password');
             $table->string('Umur');
+            $table->string('TanggalLahir');
             $table->string('NoHP');
             $table->string('Status');
             $table->string('Note');

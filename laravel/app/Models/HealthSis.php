@@ -17,6 +17,7 @@ class HealthSis extends Model
         "Status",
         "Note",
         "Umur",
+        "TanggalLahir",
         "password",
         "Email",
         "Image"
