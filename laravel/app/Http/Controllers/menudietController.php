@@ -46,6 +46,16 @@ class menudietController extends Controller
             'prods' => menudiet::find($id)
         ]);
     }
+    public function destroy($id)
+    {
+        // Gunakan model yang bersesuaian untuk menghapus data
+        $data = menudiet::findOrFail($id);
+        $data->delete();
+    
+        // Redirect ke halaman sebelumnya atau halaman yang diinginkan setelah data dihapus
+        return redirect('/menudiet')->back();
+
+    }
 
 
 }

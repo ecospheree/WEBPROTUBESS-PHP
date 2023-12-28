@@ -26,7 +26,7 @@
                 <form class="form-group" method="POST" action="{{$action}}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="_method" value="{{ $method }}" />
-                    <label for="Username" class="float-start"
+                    <label for="Username" class="float-start" name="Username"
                         style="font-size: large; font-weight: bold; position: relative;">{{
                         $prods->Username }}
                     </label><br>

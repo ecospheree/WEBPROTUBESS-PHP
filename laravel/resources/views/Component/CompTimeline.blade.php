@@ -17,7 +17,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-controls="{{$page .'-menu'. $data->id}}" id="{{$page .'-menu'. $data->id}}"
                 style="will-change: transform; position: absolute; transform: translate3d(-147px, 34px, 0px); top: 0px; left: 0px;">
                 <a href="{{ url( $page .'/' . $data->id . '/delete') }}" class="dropdown-item menu-action">Delete</a>
-                <a href="{{ url( $page .'/' . $data->id . '/edit') }}" class="dropdown-item">Modify</a>
+                <a href="{{ url( $page .'/' . $data->id . '/' . session('id') .'/edit') }}" class="dropdown-item">Modify</a>
             </div>
         </div>
     </div>
