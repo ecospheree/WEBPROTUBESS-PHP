@@ -16,10 +16,10 @@ class ArtikelController extends Controller
 
     public function create($id)
     {
-        return view('Upload-Timeline', [
+        return view('Create-Artikel', [
             'title' => 'Buat',
             'method' => 'POST',
-            'action' => "/timeline/$id/store",
+            'action' => "/artikel/$id/store",
             'prods' => HealthSis::find($id)
         ]);
     }
@@ -27,33 +27,9 @@ class ArtikelController extends Controller
     {
         $user = HealthSis::find($id);
         $prod = new artikel;
-        $prod->Username = $user->Username;
-        $prod->Message = $request->Message;
-        if ($request->file('Image')) {
-            $file = $request->file('Image');
-            $filename = date('YmdHi') . $file->getClientOriginalExtension();
-            $file->move(public_path('public/Image'), $filename);
-            $prod->Image = $filename;
-        }
-        $prod->save();
-        return redirect('/timeline')->with('msg', 'Edit berhasil');
-    }
-
-    public function edit($id)
-    {
-        return view('Create-Artikel', [
-            'title' => 'Edit',
-            'method' => 'PUT',
-            'action' => "/artikel/$id/update",
-            'prods' => artikel::find($id)
-        ]);
-    }
-    public function update(Request $request, $id)
-    {
-        $user = HealthSis::find($id);
-        $prod = new artikel;
-        $prod->Username = $user->Username;
-        $prod->Message = $request->Message;
+        $prod->Created_by = $user->Username;
+        $prod->Deskripsi = $request->Deskripsi;
+        $prod->Judul = $request->Judul;
         if ($request->file('Image')) {
             $file = $request->file('Image');
             $filename = date('YmdHi') . $file->getClientOriginalExtension();
@@ -62,7 +38,38 @@ class ArtikelController extends Controller
         }
         $prod->save();
         return redirect('/artikel')->with('msg', 'Edit berhasil');
+    }
 
+    public function edit($id, $iduser)
+    {
+        return view('Create-Artikel', [
+            'title' => 'Edit',
+            'method' => 'PUT',
+            'action' => "/artikel/$id/$iduser/update",
+            'prods' => artikel::find($id)
+        ]);
+    }
+    public function show($id)
+    {
+        return view('Artikel.Artikel_1', [
+            'prods' => artikel::find($id)
+        ]);
+    }
+    public function update(Request $request, $id, $iduser)
+    {
+        $user = HealthSis::find($iduser);
+        $prod = artikel::find($id);
+        $prod->Created_by = $user->Username;
+        $prod->Deskripsi = $request->Deskripsi;
+        $prod->Judul = $request->Judul;
+        if ($request->file('Image')) {
+            $file = $request->file('Image');
+            $filename = date('YmdHi') . $file->getClientOriginalExtension();
+            $file->move(public_path('public/Image'), $filename);
+            $prod->Image = $filename;
+        }
+        $prod->save();
+        return redirect('/artikel')->with('msg', 'Edit berhasil');
     }
 
     public function delete($id){

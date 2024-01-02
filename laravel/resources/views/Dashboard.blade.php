@@ -17,9 +17,11 @@
     @endcomponent
 
     @if(session('statusAdmin') === true)
-    @component('Component.Admin')
+    @component('Component.AdminDash')
     @endcomponent
     @endif
+
+    
     <!--KONTEN-->
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -29,24 +31,29 @@
                 aria-label="Slide 2"></button>
         </div>
         <div class="carousel-inner">
+            
             @foreach($prods as $d)
             <div class="carousel-item active">
+                
                 <img src="{{url('public/Image/'.$d->Image)}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>{{$d->Judul}}</h5>
-                    <p>{{$d->Deskripsi}}</p>
+                    <p>{{$d->Deskripsi}}</p><br>
+                    @if(session('statusAdmin') === true)
+                    <div class="d-flex justify-content-evenly">
+                        <a href="/dashboard/{{$d->id}}/edit"><input type="button" class="btn btn-success" value="Edit"></a>
+                        <form method="post" action="/dashboard/{{$d->id}}/delete" style="display:inline"
+                            onsubmit="return confirm('Yakin hapus?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    @endif
+
                 </div>
             </div>
             @endforeach
-            <div class="carousel-item">
-                <img src="/Image/img2.jpeg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Hidup Sehat Itu Penting</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, minima. Consequuntur voluptas
-                        eius perferendis adipisci itaque voluptatem odit sed ad aut a, est animi ipsam omnis pariatur
-                        nemo facere nostrum.</p>
-                </div>
-            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev">
