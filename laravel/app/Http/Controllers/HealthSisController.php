@@ -35,7 +35,7 @@ class HealthSisController extends Controller
             session(['statusLogin' => true]);
             session(['statusAdmin' => false]);
             return redirect('Dashboard');
-        }elseif($email == "AlifAdmin" && $password == "alif123"){
+        } elseif ($email == "AlifAdmin" && $password == "alif123") {
             session(['username' => 'ADMIN']);
             session(['id' => '0']);
             session(['statusLogin' => true]);
@@ -102,10 +102,18 @@ class HealthSisController extends Controller
         return redirect("/HealthSis/{$id}/edit")->with('msg', 'Edit berhasil');
     }
 
-    public function logout(){
+    public function logout()
+    {
         session(['statusAdmin' => false]);
         session(['statusLogin' => false]);
         session()->flush();
         return view("/Dashboard");
+    }
+
+    public function destroy($id)
+    {
+        $prod = HealthSis::find($id);
+        $prod->delete();
+        return redirect("/Dashboard")->with('msg', 'Hapus Akun berhasil');
     }
 }
