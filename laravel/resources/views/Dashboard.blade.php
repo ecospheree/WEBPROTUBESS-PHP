@@ -17,8 +17,8 @@
     @endcomponent
 
     @if(session('statusAdmin') === true)
-        @component('Component.Admin')
-        @endcomponent
+    @component('Component.Admin')
+    @endcomponent
     @endif
     <!--KONTEN-->
     <div id="carouselExampleCaptions" class="carousel slide">

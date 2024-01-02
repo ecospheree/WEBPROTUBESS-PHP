@@ -12,6 +12,10 @@ use Carbon\Carbon;
 class HealthSisController extends Controller
 {
 
+    public function index(){
+        $prods = dashboard::get();
+        return view("Dashboard", compact('prods'));
+    }
     public function Login()
     {
         $prods = dashboard::get();

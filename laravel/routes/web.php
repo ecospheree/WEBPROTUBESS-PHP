@@ -16,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Dashboard
+Route::get('/Dashboard', [HealthSisController::class, 'index']);
 
-Route::get('/Dashboard', function () {
-    return view('Dashboard');
-});
 
 //default admin profile
 Route::get('/Profile', function () {
