@@ -30,14 +30,10 @@ Route::get('/Profile', function () {
 Route::get('/menudiet', [menudietController::class, 'index']);
 Route::get('/createmenudiet', [menudietController::class, 'create']);
 Route::post('/storemenudiet', [menudietController::class, 'store']);
-<<<<<<< HEAD
 route::get('/menudiet/{id}/food', [menudietController::class,'show']);
 Route::delete('/menudiet/{id}/delete', [menudietController::class, 'destroy']);
 Route::get('/menudiet/{id}/edit', [menudietController::class, 'edit'])->name('post.edit');
 Route::put('/menudiet/{id}/update', [menudietController::class, 'update'])->name('post.update');
-=======
-route::get('/menudiet/{id}/food', [menudietController::class, 'edit']);
->>>>>>> db56157227a1881bd20c2cf6d1934c2d729eaae7
 
 //LOGIN REGISTER, PROFILE
 Route::get('/Login', [HealthSisController::class, 'Login']);
