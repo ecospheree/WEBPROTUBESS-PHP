@@ -39,6 +39,7 @@
             <!--Food1-->
             <div class="card col m-lg-2 ">
                 <div class="card-body">
+                    @if(session('statusAdmin') === true)
                     <div class="d-flex flex-row-reverse">
                         <form method="post" action="/menudiet/{{ $d->id }}/delete" style="display:inline"
                             onsubmit="return confirm('Yakin hapus?')">
@@ -46,19 +47,17 @@
                             @method('DELETE')
                             <button class="btn btn-danger"><i class="fa fa-close"></i></button>
                         </form>
-                        <!-- <form method="post" action="/menudiet/{{ $d->id }}/delete" style="display:inline" onsubmit="return confirm('Yakin hapus?')">
-                            //@csrf
-                            //@method('DELETE')
-                            <a href="#" role="Button" style="Color:White"><i class="fa fa-close"></i></a>
-                        </form> -->
                     </div>
+                    @endif
                     <h5 class="card-title">{{$d->Judul}}</h5>
                     <img src="{{url('public/Image/'.$d->Image)}}" class="img-thumbnail" alt="...">
                     <p class="card-text">{{$d->Subjudul}} Kal</p>
                     <a href="/menudiet/{{$d->id}}/food" class="btn btn-primary">Selengkapnya</a>
+                    @if(session('statusAdmin') === true)
                     <div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Update</button>
+                        <a href="/menudiet/{{$d->id}}/edit"><button type="button" class="btn btn-secondary" data-dismiss="modal">Update</button></a>
                     </div>
+                    @endif
                 </div>
             </div>
             @endforeach
@@ -74,13 +73,26 @@
             <!--Food1-->
             <div class="card col m-lg-2 ">
                 <div class="card-body">
+                    @if(session('statusAdmin') === true)
+                    <div class="d-flex flex-row-reverse">
+                        <form method="post" action="/menudiet/{{ $d->id }}/delete" style="display:inline"
+                            onsubmit="return confirm('Yakin hapus?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger"><i class="fa fa-close"></i></button>
+                        </form>
+                    </div>
+                    @endif
                     <h5 class="card-title">{{$d->Judul}}</h5>
                     <img src="{{url('public/Image/'.$d->Image)}}" class="img-thumbnail" alt="...">
                     <p class="card-text">{{$d->Subjudul}} Kal</p>
                     <a href="/menudiet/{{$d->id}}/food" class="btn btn-primary">Selengkapnya</a>
+                    @if(session('statusAdmin') === true)
+                    <div>
+                        <a href="/menudiet/{{$d->id}}/edit"><button type="button" class="btn btn-secondary" data-dismiss="modal">Update</button></a>
+                    </div>
+                    @endif
                 </div>
-                <button type="button" onclick="deleteElement('elementId')"
-                    style="background-color: #ff0000; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
             </div>
             @endforeach
         </div>

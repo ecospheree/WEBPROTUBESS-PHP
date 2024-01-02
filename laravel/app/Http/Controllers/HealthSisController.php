@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\dashboard;
 use App\Models\HealthSis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,9 +14,10 @@ class HealthSisController extends Controller
 
     public function Login()
     {
+        $prods = dashboard::all();
         if (Auth::check()) {
             session_start();
-            return view("Dashboard");
+            return view("Dashboard", compact('prods'));
         } else {
             return view("Login");
         };

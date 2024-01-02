@@ -16,24 +16,28 @@
     @component('Component.Navbar')
     @endcomponent
 
+    @if(session('statusAdmin') === true)
+        @component('Component.Admin')
+        @endcomponent
+    @endif
     <!--KONTEN-->
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
+                aria-current="true" aria-label="Previous"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
                 aria-label="Slide 2"></button>
         </div>
         <div class="carousel-inner">
+            @foreach($prods as $d)
             <div class="carousel-item active">
-                <img src="/Image/img1.jpeg" class="d-block w-100" alt="...">
+                <img src="{{url('public/Image/'.$d->Image)}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Selamat Datang Di HealtSis</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, voluptatum quae eveniet iusto quod
-                        quaerat sed consequatur perspiciatis sequi nisi cumque quas eum distinctio nesciunt numquam
-                        nostrum quibusdam iste voluptate.</p>
+                    <h5>{{$d->Judul}}</h5>
+                    <p>{{$d->Deskripsi}}</p>
                 </div>
             </div>
+            @endforeach
             <div class="carousel-item">
                 <img src="/Image/img2.jpeg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">

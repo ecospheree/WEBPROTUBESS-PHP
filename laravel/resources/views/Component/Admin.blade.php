@@ -19,6 +19,7 @@
             <button type="button" class="dropdown-toggle btn btn-info" role="button" data-bs-toggle="dropdown">ADMIN</button>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="/createmenudiet" class="dropdown-item menu-action">Create-MenuDiet</a>
+                <a href="/createmenudiet" class="dropdown-item menu-action">Add-Carousel</a>
             </div>
         </div>
     </div>

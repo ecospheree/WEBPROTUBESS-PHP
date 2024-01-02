@@ -19,6 +19,8 @@ class menudietController extends Controller
     public function create()
     {
         return view('Create_MenuDiet', [
+            'title' => 'Create',
+            'method' => 'POST',
             'action' => 'storemenudiet'
         ]);
     }
@@ -40,7 +42,7 @@ class menudietController extends Controller
         return redirect('/menudiet')->with('msg', 'Tambah berhasil');
     }
     // untuk memanggil detail MENU DIET
-    public function edit($id)
+    public function show($id)
     {
         return view('menudiet.food', [
             'prods' => menudiet::find($id)
@@ -53,9 +55,34 @@ class menudietController extends Controller
         $data->delete();
     
         // Redirect ke halaman sebelumnya atau halaman yang diinginkan setelah data dihapus
-        return redirect('/menudiet')->back();
+        return redirect('/menudiet');
 
     }
+    public function edit($id)
+    {
+        return view('Create_MenuDiet', [
+            'title' => 'Edit',
+            'method' => 'PUT',
+            'action' => "/menudiet/$id/update",
+            'data' => menudiet::find($id)
+        ]);
+    }
+    public function update(Request $request, $id)
+    {
+        $prod = menudiet::find($id);
+        $prod->Judul = $request->Judul;
+        $prod->SubJudul = $request->SubJudul;
+        if ($request->file('Image')) {
+            $file = $request->file('Image');
+            $filename = date('YmdHi') . $file->getClientOriginalExtension();
+            $file->move(public_path('public/Image'), $filename);
+            $prod->Image = $filename;
+        }
+        $prod->Chef = 'Admin';
+        $prod->Deskripsi = $request->Deskripsi;
+        $prod->save();
+        return redirect('/menudiet')->with('msg', 'Tambah berhasil');
 
+    }
 
 }

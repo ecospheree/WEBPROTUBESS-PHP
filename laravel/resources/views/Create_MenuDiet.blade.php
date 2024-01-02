@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--CODE-->
-    <title>Create-Artikel</title>
+    <title>{{$title}}-MenuDiet</title>
     <!--CSS-->
     <link rel="stylesheet" href="./Component/NavBar.css">
 </head>
@@ -18,6 +18,7 @@
     <div class="container">
         <form action="{{$action}}" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="_method" value="{{ $method }}"/>
             <div class="row mb-3">
                 <div class="col-md-12">
                     <h6 class="form-label text-start mb-3 mt-3">Upload Foto</h6>
@@ -41,7 +42,7 @@
             <div class="row mb-3">
                 <div class="col-md-12">
                     <h6 class="form-label text-start mb-2">Kalori Makanan (Kal)</h6>
-                    <input type="number" name="SubJudul" id="Food-id" class="form-control" placeholder="2100" value="{{ isset($data)?$data->SubJudul:'' }}" >
+                    <input type="number" name="SubJudul" id="Food-id" class="form-control" placeholder="2100" value="{{ isset($data)?$data->Subjudul:'' }}" >
                 </div>
             </div>
             <div class="row mb-3">
