@@ -14,7 +14,7 @@ class HealthSisController extends Controller
 
     public function Login()
     {
-        $prods = dashboard::all();
+        $prods = dashboard::get();
         if (Auth::check()) {
             session_start();
             return view("Dashboard", compact('prods'));
@@ -107,7 +107,8 @@ class HealthSisController extends Controller
         session(['statusAdmin' => false]);
         session(['statusLogin' => false]);
         session()->flush();
-        return view("/Dashboard");
+        $prods = dashboard::get();
+        return view("Dashboard", compact('prods'));
     }
 
     public function destroy($id)
