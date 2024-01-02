@@ -40,27 +40,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="hapusAkun" tabindex="-1" role="dialog" aria-labelledby="hapusAkunTitle">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="hapusAkunTitle">Konfirmasi Penghapusan Akun</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Apakah Anda yakin ingin menghapus akun?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <form method="post" action="/Healthsis/{{ $prods->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Hapus Akun</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container container-shifted" style="margin-top: 100px;">
         <form method="POST" action="/{{ $action }}" enctype="multipart/form-data">
             @csrf
@@ -108,6 +87,27 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <div class="modal fade" id="hapusAkun" tabindex="-1" role="dialog" aria-labelledby="hapusAkunTitle">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hapusAkunTitle">Konfirmasi Penghapusan Akun</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin ingin menghapus akun?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <form method="post" action="/HealthSis/{{ $prods->id }}/delete">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="LogOut()">Hapus Akun</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="{{ asset('Default.js') }}"></script>
 </body>

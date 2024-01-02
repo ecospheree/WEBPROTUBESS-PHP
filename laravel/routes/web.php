@@ -35,7 +35,7 @@ Route::get('/Profile', function () {
 Route::get('/menudiet', [menudietController::class, 'index']);
 Route::get('/createmenudiet', [menudietController::class, 'create']);
 Route::post('/storemenudiet', [menudietController::class, 'store']);
-route::get('/menudiet/{id}/food', [menudietController::class,'show']);
+route::get('/menudiet/{id}/food', [menudietController::class, 'show']);
 Route::delete('/menudiet/{id}/delete', [menudietController::class, 'destroy']);
 Route::get('/menudiet/{id}/edit', [menudietController::class, 'edit']);
 Route::put('/menudiet/{id}/update', [menudietController::class, 'update']);
@@ -48,18 +48,13 @@ Route::get('/register', [HealthSisController::class, 'create']);
 Route::post('/store', [HealthSisController::class, 'store']);
 Route::put('/HealthSis/{id}/update', [HealthSisController::class, 'update']);
 Route::get('/HealthSis/{id}/edit', [HealthSisController::class, 'edit']);
-Route::delete('/HealthSis/{id}', [HealthSisController::class, 'destroy']);
+Route::delete('/HealthSis/{id}/delete', [HealthSisController::class, 'delete']);
 //Timeline
 Route::get('/timeline', [PostController::class, 'index'])->name('post.index');
 Route::get('/timeline/{id}/create-timeline', [PostController::class, 'create'])->name('post.create');
 Route::post('/timeline/{id}/store', [PostController::class, 'store'])->name('post.store');
 Route::put('/timeline/{id}/{iduser}/update', [PostController::class, 'update'])->name('post.update');
 Route::get('/timeline/{id}/{iduser}/edit', [PostController::class, 'edit'])->name('post.edit');
-// Route::get('/timeline', [PostController::class, 'index'])->name('post.index');
-// Route::get('/timeline/{id}/create-timeline', [PostController::class, 'create'])->name('post.create');
-// Route::post('/timeline/{id}/store', [PostController::class, 'store'])->name('post.store');
-// Route::put('/timeline/{id}/update', [PostController::class, 'update'])->name('post.update');
-// Route::get('/timeline/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
 Route::get('/timeline/{id}/delete', [PostController::class, 'delete'])->name('post.delete');
 
 //Artikel

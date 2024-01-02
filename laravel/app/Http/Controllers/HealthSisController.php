@@ -115,10 +115,12 @@ class HealthSisController extends Controller
         return view("Dashboard", compact('prods'));
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
-        $prod = HealthSis::find($id);
-        $prod->delete();
+        HealthSis::destroy($id);
+        session(['statusAdmin' => false]);
+        session(['statusLogin' => false]);
+        session()->flush();
         return redirect("/Dashboard")->with('msg', 'Hapus Akun berhasil');
     }
 }
