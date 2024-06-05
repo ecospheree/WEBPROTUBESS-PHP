@@ -1,4 +1,4 @@
-name: Laravell Integrations
+name: Laravel Integrations
 
 on:
   push:
