@@ -64,7 +64,6 @@ jobs:
             -Dsonar.php.tests.reportPath=tests/_reports/test-report.xml 
             -Dsonar.php.coverage.reportPaths=tests/_reports/coverage-report.xml 
             -Dsonar.exclusions=vendor/**,storage/**,public/**,resources/views/**,bootstrap/** 
-            -Dsonar.sourceEncoding=UTF-8
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources= # optional, default is project base directory.
             # Comma-separated paths to directories containing test source files.
