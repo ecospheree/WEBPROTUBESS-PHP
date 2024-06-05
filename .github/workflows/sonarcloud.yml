@@ -31,4 +31,4 @@ jobs:
             -Dsonar.projectKey=IA7308_WEBPROTUBES
             -Dsonar.organization=ia7308
             -Dsonar.sources=./laravel
-          projectBaseDir: ./laravel
+          projectBaseDir: .
