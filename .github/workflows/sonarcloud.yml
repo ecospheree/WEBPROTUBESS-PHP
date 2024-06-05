@@ -28,7 +28,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=IA7308_WEBPROTUBES
-            -Dsonar.organization=ia7308
+            -Dsonar.projectKey=ecospheree_WEBPROTUBESS-PHP
+            -Dsonar.organization=ecospheree
             -Dsonar.sources=./laravel
           projectBaseDir: .
